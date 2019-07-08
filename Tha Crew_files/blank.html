@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://open.spotify.com/blank -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- V2 -->
+  <style type="text/css">
+
+    html, body {
+      margin: 0px;
+      background-color: #131313;
+      overflow: hidden;
+    }
+
+    #leaderboard {
+      width: 728px;
+      height: 90px;
+    }
+    #leaderboard iframe {
+      width: 728px;
+      height: 90px;
+      border: none;
+    }
+  </style>
+  <script src="./osd.js"></script><script src="./pubads_impl_rendering_2019062401.js"></script><script async="" src="./gpt.js"></script><script type="text/javascript">
+    (function(global, spotify) {
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      global.googletag = googletag;
+      (function () {
+        var gads = global.document.createElement('script');
+        gads.async = true;
+        gads.src = 'https://www.googletagservices.com/tag/js/gpt.js';
+        var node = global.document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+      })();
+
+      googletag.cmd.push(function() {
+        var slot = googletag.defineSlot(spotify.inventoryUnit, [spotify.slotSize], spotify.slotId)
+            .addService(googletag.pubads());
+
+        for (var key in spotify.targeting) {
+          if (spotify.targeting.hasOwnProperty(key)) {
+            slot.setTargeting(key, spotify.targeting[key]);
+          }
+        }
+
+        googletag.pubads().addEventListener('slotRenderEnded', function (e) {
+          if (e.isEmpty) {
+            fetch("https://adeventtracker.spotify.com/monitoring?pload=AADDpc0ro9bCbZ30rUqghYnURocS-MaIOAFn8ZKv8a3b2S9zX7KvE_vojcmWlGUXQuHXuGq8IwHyuA2WBdr1qbXeVjYqLGWKEnYGy5xJofcwwZv--1VtYYl5-BgpMIRo3QGhXv96auYZnXqOGVCccAtbF-0IJy4mLEr8foqQb6cMZeKb_03svcNdz_znoVQXPIgNPCLDrqTrGFl0UrYBdMFcL1KKitjY366uqn8CB0kDgPEhdAsYw_E-fbuF88Cmhk3wWm5NkXL37CGvuZe_yAIcQFCkLwnzJYN1Ku1lbi3MHWLwjScAToSlvTgoCWpKxaf-t1-iBYmH_XYobAphANdoUizbJw&event=monitoring");
+          } else {
+            fetch("https://adeventtracker.spotify.com/monitoring?pload=AACSCchRBnlf7P-HlZmR82WhSF4Sq5Tpe7zyL-L3T1qy2EXL7e6VtO_2L_1kaoe29Z6ptlKq-SmZojnowtMRNYUIKcFn6kZk5uKT-SJvjSvf_pW_YlIWosR2i0zWGLw8K48VMWloZb_x-5rDIO3GXcT7paRTGlbHi_5xC-lYpmmZqCGk_WOtsV85eoNQMpVM_KPmEopjTkIU-IdmXvxbIwZl6s0K4vbJfOOXHdZsWRdFcpGprHP7o1HDy7CGktKVZ_mVEatBVMsrL1JHPD_WRTOM1l20Tbbi7xcdGn5nFhWblc1xL7O_d9KXQjw7ehqqWYZ9zl08zwXFLeopLQV4huL7mgm1&event=monitoring");
+          }
+          window.parent.postMessage({
+            type: 'ads-leaderboard-' + (e.isEmpty ? 'failed' : 'rendered'),
+            data: {
+              creativeId: e.creativeId,
+              lineItemId: e.lineItemId,
+              slot: spotify.slotId,
+              age: spotify.targeting.age || '',
+              gender: spotify.targeting.gender || ''
+            }
+          }, '*');
+        });
+
+        googletag.pubads().set('page_url', spotify.pageUrl);
+        googletag.pubads().setPublisherProvidedId(spotify.ppid);
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().setSafeFrameConfig({
+          sandbox: true,
+          allowOverlayExpansion: false
+        });
+        googletag.pubads().setForceSafeFrame(true);
+        googletag.pubads().setRequestNonPersonalizedAds("0");
+        googletag.pubads().setTagForUnderAgeOfConsent("0");
+        googletag.enableServices();
+        googletag.display(spotify.slotId);
+      });
+    })(window, {
+      slotId: 'leaderboard',
+      inventoryUnit: '/6465052/web',
+      slotSize: [728, 90],
+      targeting: {
+          "country": "us",
+          "product": "free",
+          "age_pr": "26",
+          "gender": "male",
+          "aduserid": "fa0ea4b287ecff82bfde02722706bf48",
+          "adbreaklength": "90",
+          "explicitlistener": "true",
+          "eligibletrial": "true",
+          "accountage": "2242",
+          "rid": "9558eaf0-9765-425c-a15a-033ed834e98b",
+          "created_from_fb": "true",
+          "leaderboard_refresh_interval": "30000",
+          "abtest": "ads-preroll-mvto-ss_Control,premium_18q4_holdiay_video_creative_duration_test_Control,cream_aaa_automated_filler_ads_2019q2_Control,ad-sponsored-playlist-dw_Control,premium_18q3_audio_assertive_android_cta_test_Control,2018q2_premium_student_self_id_no_survey_no_marketing,premium_18q1_guaranteed_ad_load_2_ads,ad_exp_5tile_12,premium_18q4_holiday_holdouts_email_upsell_quicksilver_filler_guaranteed_perf,premium_18q3_cross_format_creative_concept_test_fastfacts,aaa-dogfooding-1_Control,premium_17q3_ads_creative_refresh_video_banner,ads_programmatic_banner_exposed,2018q3_premium_latam_winback_Control,mobile_overlay_rt_us_moverlay_only,iam_marquee_holdout_1percent_Marquee,ebda_openx_test_exposed,premium_18q1_audio_creative_quantity_test_audio_holdout,Holiday_2017_Treatment,2018q1_premiumbusiness_dual_offer_US_Control,premium_18q4_audio_filler_adload_issue_testgroup,ad-sponsored-playlist-dw2_test,premium_midyear_2019_holdouts_all_marketing,premium_18q2_evergreen_showcase_creative_variation_constant_new_concept,premium_19q1_global_filler_content_ad_mix_premium70_content30,premium_18q4_quicksilver_jp_upsell_holdout_treatment,ad-logic-long-term-data-persist_Control,premium_18q4_holiday_winback_guaranteed_Treatment,ads_adserver_alpha_test_Control,premium_18q1_audio_creative_refresh_test_2_New_Narrative,adserver-first_test",
+          "realtimesubgenre": "rap",
+          "realtimegenre": "hiphop",
+          "gender_pr": "female",
+          "streamtimebetweenadbreaks": "810",
+          "upsellproduct": "trial_30_days",
+          "age_dec": "30",
+          "client_version": "web_1.0.0",
+          "lang": "en",
+          "age": "30",
+      },
+      pageUrl: "https://www.spotify.com",
+      ppid: 'fa0ea4b287ecff82bfde02722706bf48'
+    });
+  </script>
+<link rel="preload" href="./f.txt" as="script"><script type="text/javascript" src="./f.txt"></script><link rel="preload" href="./f(1).txt" as="script"><script type="text/javascript" src="./f(1).txt"></script><script src="./pubads_impl_2019062401.js" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-35/html/container.html?n=1"></head>
+<body>
+<div id="leaderboard" data-google-query-id="CJzGqIKfouMCFQmR3godB3cALg"><div id="google_ads_iframe_/6465052/web_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./container.html" id="google_ads_iframe_/6465052/web_0" title="3rd party ad content" name="1-0-35;11271;&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;script&gt;var google_casm=[];&lt;/script&gt;&lt;/head&gt;&lt;body leftMargin=&quot;0&quot; topMargin=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;script&gt;window.dicnf = {};&lt;/script&gt;&lt;script&gt;(function(){window.viewReq=[];function b(a){var c=new Image;c.src=a.replace(&quot;&amp;amp;&quot;,&quot;&amp;&quot;);viewReq.push(c)}function d(a){fetch(a,{keepalive:!0,credentials:&quot;include&quot;,redirect:&quot;follow&quot;,method:&quot;get&quot;,mode:&quot;no-cors&quot;}).catch(function(){b(a)})}window.vu=function(a){window.fetch?d(a):b(a)};}).call(this);&lt;/script&gt;&lt;script&gt;&lt;/script&gt;&lt;script&gt;vu(&quot;https://securepubads.g.doubleclick.net/pagead/adview?ai\u003dCEI1lfJkhXZyYN4mi-gaH7oHwArqY0fFN2Imhs8sCwI23ARABIABgtQGCARdjYS1wdWItNDQzODUzNzcyNTYwOTU4MaABqN6JwwPIAQmpAlfKxxfBrag-4AIAqAMBqgS-AU_QwQ5EBTI5yfV_UneOoTXXxEYEXci8iyx2nf11VMW1aJYASnm7U9ZMpM106uApuhwd57KnVDOD3Z3sQSlo3jU__h5EI8_RLVmE8KStnm1633fghtAcFB8pj-cZh2mFZhnabbSODTza2A9NxivUd5O1iyeY94xKFxO3R1Otpqf3UoE3BDFGcZZmX8a2cK27B_1MxRCdiZlD9vgkRL7UslSzx0tjwRsYm2s7zU4Fcg-MQEq0kDOHml2_xhX-QKfgBAGABvXGkOqcmsr_iwGgBiGoB6a-G6gH2csbqAfPzBvYBwDSCAUIgCEQAQ\u0026sigh\u003doESPTPKXOmk\u0026tpd\u003dAGWhJmuTevMZilcUgGo3slxYkuUmZUVrN4QiyaJUT7BUmqxXdQ&quot;)&lt;/script&gt;&lt;script&gt;vu(&quot;https://ams1-ib.adnxs.com/it?an_audit\u003d0\u0026referrer\u003dhttps%3A%2F%2Fwww.spotify.com\u0026e\u003dwqT_3QKhCvBDIQUAAAMA1gAFAQj-sobpBRCxhZm707qO5EYY_pXyrPWmqNUHKjYJhnzQs1n1uT8RhXzQs1n1uT8ZAAAAgML1BkAhhXwJGwQphQ0bADEBG7jrUeA_MImNzQQ4tQFAtRVIAlDbhqVOWKnYPWAAaJ-saHi8tQWAAQGKAQNVU0SSAQEG8HGYAdgFoAFaqAEBsAEAuAECwAEFyAEC0AEA2AEA4AEA8AEA-gEUNTgzNC13d3cuc3BvdGlmeS5jb22KApMBdWYoJ2EnLCAxMTc5MjAyLCAxNTYyNDgzMDcwKTt1ZignaScsIDg4NzU4MywgMTU2MjQ4MzARHCxnJywgNjQwODcyMSxCOQAoYycsIDI0MTM1MjhKHgAwcicsIDE2NDE4NDkyMzY9APCLkgKdBCEzWGlJd0Fqd2pNRUxFTnVHcFU0WUFDQ3AyRDB3QVRnQVFBQkl0UlZRaVkzTkJGZ0FZTTRHYUFCd0FIZ0FnQUVFaUFHMDJRR1FBUUdZQVFHZ0FRS29BUUt3QVFDNUFXZkp5NmNqOWJrX3dRRm55Y3VuSV9XNVA4a0JBQUFBQUFBQThEX1pBUUEJDmBQQV80QUdmbGpiMUFhN0pBVDc0QVFDQUFnBQQsSUFwcW40UWFJQXEtCQg2EAAMUUFnRy4EACBZQWdDZ0FnQ28JBABHEQgIMUFnAW8EQzkJCPCfREFBZ1RJQXJUWkFkQUNCTmdDdE5rQjRBSUE2QUlBLUFJQWdBTUJpQU1DaUFNQ2tBTUFtQU1Cb2dNWENMLXBzZ0lRQWhnQkxRQUFBQUF5QjJSbFptRjFiSFNpQXc0SXBwVFJCaEFFR0FFdG5KNkdPcUlERkFpMzhya0dFQW9ZQVMwNFVJRV9NZ1JqZERJMm9nTU9DSWpSc1FJUUN4Z0NMUQWskG9BX0dNd1F1NkF3bEJUVk14T2pNNU5UWGdBOG9PLUFPNXRMUU0RCLBnQVR2eWNVQmlBU0N5OFVCa0FRQm1BUUVzZ1FLQ0pxbjRRWVF1YlMwRE1FRUEBXwUBCERKQgUICQE4MkFRQZoChQEhN1E0bl9RNiECJHFkZzlJQUFvQUQRQFhEUVB6b0pRVTFUTVRvek9UVTFRTW9PUykVAEEh2QBVEQwMQUFBVx0MAFkdDABhHQwAYx0MUNgC8AbgAq7SMeoCF2h0dHBzOi8vdzZkA_CLgAMAiAMBkAMAmAMJoAMBqgMAwAOsAsgDANgDkqQk4AMA6AMA-AMDgAQAkgQEL3VhcJgEAKIEDDQxLjIxNS4yNTQuMKgEyq0KsgQMCAAQABgAIAAwADgAuAQAwAQAyAQA0gQOMjc0MSNBTVMxOjM5NTXaBAIIAeAEAfAE24alTogFAZgFAKAF______8BBRgBwAUAyQUABQEU8D_SBQkJBQt8AAAA2AUA4AUB8AXZ0Br6BQQIABAAkAYAmAYAuAYAwQYBISwAAPA_yAYA2gYWChAJEBkBAZo04AYB8gYCCACABwGIBwA.\u0026s\u003d63c71d86d66c710c447548f021b50386d8a035a6\u0026pp\u003dXSGZfAANzBwK3pEJAAB3ByUHX8QDi6yUQNpKgA\u0026pubclick\u003dhttps://adclick.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DCEI1lfJkhXZyYN4mi-gaH7oHwArqY0fFN2Imhs8sCwI23ARABIABgtQGCARdjYS1wdWItNDQzODUzNzcyNTYwOTU4MaABqN6JwwPIAQmpAlfKxxfBrag-4AIAqAMBqgS-AU_QwQ5EBTI5yfV_UneOoTXXxEYEXci8iyx2nf11VMW1aJYASnm7U9ZMpM106uApuhwd57KnVDOD3Z3sQSlo3jU__h5EI8_RLVmE8KStnm1633fghtAcFB8pj-cZh2mFZhnabbSODTza2A9NxivUd5O1iyeY94xKFxO3R1Otpqf3UoE3BDFGcZZmX8a2cK27B_1MxRCdiZlD9vgkRL7UslSzx0tjwRsYm2s7zU4Fcg-MQEq0kDOHml2_xhX-QKfgBAGABvXGkOqcmsr_iwGgBiGoB6a-G6gH2csbqAfPzBvYBwDSCAUIgCEQAQ%26num%3D1%26sig%3DAOD64_1xX5_LUfr_L_c6Dlv7J6rh9vfqHA%26client%3Dca-pub-4438537725609581%26adurl%3D&quot;)&lt;/script&gt;&lt;div style=&quot;display:inline&quot;class=&quot;GoogleActiveViewElement&quot;data-google-av-cxn=&quot;https://pagead2.googlesyndication.com/pcs/activeview?xai=AKAOjsu-pAc6prGB9HrNjAa-oj1NYpVrpkYFiVusvrLLENxSThA1vu7RZ-ZfkDF3gwYzapTo-egG-Dk00FcXF-meTRDlQQ&amp;amp;sig=Cg0ArKJSzFZwlMSnW3d0EAE&amp;amp;cid=CAASFeRosAoldepdJy9nERiWJWXWuWgyxQ&quot;data-google-av-adk=&quot;2631699302&quot;data-google-av-metadata=&quot;ud=1&amp;amp;la=0&amp;amp;alp=ai&amp;amp;alh=2201984917&amp;amp;xdi=0&amp;amp;&quot;data-google-av-override=&quot;-1&quot;data-google-av-dm=&quot;2&quot;data-google-av-immediate data-google-av-aid=&quot;0&quot;data-google-av-naid=&quot;1&quot;data-google-av-slift=&quot;&quot;data-google-av-cpmav=&quot;&quot;data-google-av-itpl=&quot;20&quot;data-google-av-rs=&quot;4&quot;&gt;&lt;script src=&quot;https://ams1-ib.adnxs.com/ab?ro=1&amp;an_audit=0&amp;referrer=https%3A%2F%2Fwww.spotify.com&amp;e=wqT_3QKJC_BDiQUAAAMA1gAFAQj-sobpBRCxhZm707qO5EYY_pXyrPWmqNUHKjYJhnzQs1n1uT8RhXzQs1n1uT8ZAAAAgML1BkAhhXwJGwQphQ0bADEBG7jrUeA_MImNzQQ4tQFAtRVIAlDbhqVOWKnYPWAAaJ-saHi8tQWAAQGKAQNVU0SSAQEG8HGYAdgFoAFaqAEBsAEAuAECwAEFyAEC0AEA2AEA4AEA8AEA-gEUNTgzNC13d3cuc3BvdGlmeS5jb22KApMBdWYoJ2EnLCAxMTc5MjAyLCAxNTYyNDgzMDcwKTt1ZignaScsIDg4NzU4MywgMTU2MjQ4MzARHCxnJywgNjQwODcyMSxCOQAoYycsIDI0MTM1MjhKHgAwcicsIDE2NDE4NDkyMzY9APCLkgKdBCEzWGlJd0Fqd2pNRUxFTnVHcFU0WUFDQ3AyRDB3QVRnQVFBQkl0UlZRaVkzTkJGZ0FZTTRHYUFCd0FIZ0FnQUVFaUFHMDJRR1FBUUdZQVFHZ0FRS29BUUt3QVFDNUFXZkp5NmNqOWJrX3dRRm55Y3VuSV9XNVA4a0JBQUFBQUFBQThEX1pBUUEJDmBQQV80QUdmbGpiMUFhN0pBVDc0QVFDQUFnBQQsSUFwcW40UWFJQXEtCQg2EAAMUUFnRy4EACBZQWdDZ0FnQ28JBABHEQgIMUFnAW8EQzkJCPCfREFBZ1RJQXJUWkFkQUNCTmdDdE5rQjRBSUE2QUlBLUFJQWdBTUJpQU1DaUFNQ2tBTUFtQU1Cb2dNWENMLXBzZ0lRQWhnQkxRQUFBQUF5QjJSbFptRjFiSFNpQXc0SXBwVFJCaEFFR0FFdG5KNkdPcUlERkFpMzhya0dFQW9ZQVMwNFVJRV9NZ1JqZERJMm9nTU9DSWpSc1FJUUN4Z0NMUQWskG9BX0dNd1F1NkF3bEJUVk14T2pNNU5UWGdBOG9PLUFPNXRMUU0RCLBnQVR2eWNVQmlBU0N5OFVCa0FRQm1BUUVzZ1FLQ0pxbjRRWVF1YlMwRE1FRUEBXwUBCERKQgUICQE4MkFRQZoChQEhN1E0bl9RNiECJHFkZzlJQUFvQUQRQFhEUVB6b0pRVTFUTVRvek9UVTFRTW9PUykVAEEh2QBVEQwMQUFBVx0MAFkdDABhHQwAYx0MUNgC8AbgAq7SMeoCF2h0dHBzOi8vdzZkAyzyAhEKBUNQX0lEEghxDkDyAhMKD0NVU1RPTV9NT0RFTAEeFADyAhoKFjIWACBMRUFGX05BTUUBHQgeCho2HQAIQVNUAT7w0ElGSUVEEgCAAwCIAwGQAwCYAwmgAwGqAwDAA6wCyAMA2AOSpCTgAwDoAwD4AwOABACSBAQvdWFwmAQAogQMNDEuMjE1LjI1NC4wqATKrQqyBAwIABAAGAAgADAAOAC4BADABADIBADSBA4yNzQxI0FNUzE6Mzk1NdoEAggB4AQB8ATbhqVOiAUBmAUAoAX___________8BwAUAyQUAAAAAAADwP9IFCQkAAAAAAAAAANgFAOAFAfAF2dAa-gUECAAQAJAGAJgGALgGAMEGAAAABTEcyAYA2gYWChAJMxkBRBAAGADgBgHyBgIIAIAHAYgHAA..&amp;s=76a75112098ae6aa1114dad5bd9ece6abe5e5c28&amp;pp=XSGZfAANzBwK3pEJAAB3ByUHX8QDi6yUQNpKgA&amp;pubclick=https://adclick.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DCEI1lfJkhXZyYN4mi-gaH7oHwArqY0fFN2Imhs8sCwI23ARABIABgtQGCARdjYS1wdWItNDQzODUzNzcyNTYwOTU4MaABqN6JwwPIAQmpAlfKxxfBrag-4AIAqAMBqgS-AU_QwQ5EBTI5yfV_UneOoTXXxEYEXci8iyx2nf11VMW1aJYASnm7U9ZMpM106uApuhwd57KnVDOD3Z3sQSlo3jU__h5EI8_RLVmE8KStnm1633fghtAcFB8pj-cZh2mFZhnabbSODTza2A9NxivUd5O1iyeY94xKFxO3R1Otpqf3UoE3BDFGcZZmX8a2cK27B_1MxRCdiZlD9vgkRL7UslSzx0tjwRsYm2s7zU4Fcg-MQEq0kDOHml2_xhX-QKfgBAGABvXGkOqcmsr_iwGgBiGoB6a-G6gH2csbqAfPzBvYBwDSCAUIgCEQAQ%26num%3D1%26sig%3DAOD64_1xX5_LUfr_L_c6Dlv7J6rh9vfqHA%26client%3Dca-pub-4438537725609581%26adurl%3D&quot;&gt;&lt;/script&gt;&lt;/div&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20190626/r20110914/client/window_focus.js&quot; async&gt;&lt;/script&gt;&lt;script&gt;function initWindowFocus() {window[&#39;window_focus_for_click&#39;] =wfocusinit(&quot;https://googleads.g.doubleclick.net/pagead/conversion/?ai\u003dCEI1lfJkhXZyYN4mi-gaH7oHwArqY0fFN2Imhs8sCwI23ARABIABgtQGCARdjYS1wdWItNDQzODUzNzcyNTYwOTU4MaABqN6JwwPIAQmpAlfKxxfBrag-4AIAqAMBqgS-AU_QwQ5EBTI5yfV_UneOoTXXxEYEXci8iyx2nf11VMW1aJYASnm7U9ZMpM106uApuhwd57KnVDOD3Z3sQSlo3jU__h5EI8_RLVmE8KStnm1633fghtAcFB8pj-cZh2mFZhnabbSODTza2A9NxivUd5O1iyeY94xKFxO3R1Otpqf3UoE3BDFGcZZmX8a2cK27B_1MxRCdiZlD9vgkRL7UslSzx0tjwRsYm2s7zU4Fcg-MQEq0kDOHml2_xhX-QKfgBAGABvXGkOqcmsr_iwGgBiGoB6a-G6gH2csbqAfPzBvYBwDSCAUIgCEQAQ\u0026sigh\u003djn3qZLOyn5E\u0026cid\u003dCAQSTQDwy9IZ85h_DYbeW2z0QCVBrpFsRk9bDyWWPYE855IFhRdYRMn_QfX9vi8oJ3WF9GrMDPeGFw5k208LEezXjz0iQtsIm0rUN2twGzP6&quot;,&quot;&quot;,&quot;CJzGqIKfouMCFQmR3godB3cALg&quot;);}if (window.wfocusinit) {initWindowFocus();} else {window[&#39;google_wf_async&#39;] = initWindowFocus;}&lt;/script&gt;&lt;iframe title=&quot;Blank&quot; scrolling=&quot;no&quot; frameborder=0 height=0 width=0 src=&quot;https://pagead2.googlesyndication.com/pagead/s/cookie_push.html#aHR0cHM6Ly9zeW5jLnRpZGFsdHYuY29tL2dlbmVyaWN1c2Vyc3luYy5hc2h4P2RwaWQ9Z2xyZHImZ29vZ2xlX2dpZD1DQUVTRURUSTMxSTVBaUZRQzNfd0tsSEJzaDAmZ29vZ2xlX2N2ZXI9MSZnb29nbGVfcHVzaD1BSE5GMTNMTXlWTG9LYm9Cd3JWUXlpN0g0SlhTMkVuMFdrYzkxeDhoOWhaNVpn,aHR0cHM6Ly91bS53YnRyay5uZXQvZG91YmxlY2xpY2svdXNlci9tYXRjaD9nb29nbGVfZ2lkPUNBRVNFRGUyakdYMVJqTy04ejYzWlhjQkZBZyZnb29nbGVfY3Zlcj0xJmdvb2dsZV9wdXNoPUFITkYxM0xNeVZMb0tib0J3clZReWk3SDRKWFMyRW4wV2tjOTF4OGg5aFo1Wmc=,aHR0cHM6Ly9jMS5hZGZvcm0ubmV0L3NlcnZpbmcvY29va2llL21hdGNoLz9wYXJ0eT0xJmdvb2dsZV9naWQ9Q0FFU0VLRDJOZlI1ZzdDUmNvOGdidUlDcVZVJmdvb2dsZV9jdmVyPTEmZ29vZ2xlX3B1c2g9QUhORjEzTE15VkxvS2JvQndyVlF5aTdINEpYUzJFbjBXa2M5MXg4aDloWjVaZw==,aHR0cHM6Ly9nc2xiZWFjb24ubGlqaXQuY29tL2JlYWNvbi9lYmRhP2dvb2dsZV9naWQ9Q0FFU0VNbVR0SWlOOVp4cVRnVDR1aFMwTWdjJmdvb2dsZV9jdmVyPTEmZ29vZ2xlX3B1c2g9QUhORjEzTE15VkxvS2JvQndyVlF5aTdINEpYUzJFbjBXa2M5MXg4aDloWjVaZw==,aHR0cHM6Ly9hZC4zNjB5aWVsZC5jb20vbWF0Y2gvZWJkYT9nb29nbGVfZ2lkPUNBRVNFR0xMQm1GMGRVcFF4Z29tNEhMWFoxUSZnb29nbGVfY3Zlcj0xJmdvb2dsZV9wdXNoPUFITkYxM0xNeVZMb0tib0J3clZReWk3SDRKWFMyRW4wV2tjOTF4OGg5aFo1Wmc=,aHR0cHM6Ly9zeW5jLjFyeC5pby91c2Vyc3luYzIvcm1wc3NwP3N1Yj1nb29nbGVjbWEmZ29vZ2xlX2dpZD1DQUVTRUtZRENpZkVkY1VYYTNEbWlXTXhtUE0mZ29vZ2xlX2N2ZXI9MSZnb29nbGVfcHVzaD1BSE5GMTNMTXlWTG9LYm9Cd3JWUXlpN0g0SlhTMkVuMFdrYzkxeDhoOWhaNVpn,aHR0cHM6Ly9jcy5tZWRpYS5uZXQvY2tzeW5jP3R5cGU9ZyZjbWE9MSZnb29nbGVfZ2lkPUNBRVNFUGtoM1BVSlV5Yl9SblNpMUF1aDZQcyZnb29nbGVfY3Zlcj0xJmdvb2dsZV9wdXNoPUFITkYxM0xNeVZMb0tib0J3clZReWk3SDRKWFMyRW4wV2tjOTF4OGg5aFo1Wmc=,aHR0cHM6Ly9jbS5nLmRvdWJsZWNsaWNrLm5ldC9waXhlbC9hdHRyP2Q9QUhORjEzS0xmOGZfRmhpZmI4N0xGUzhia2dNUmYzR1BmT2NnVnFxUHo0Q0VLcXRPZUEwOF9KX1NVVTVoN2s0cWRocjhVQko2cFFZTw==&quot;  style=&quot;position:absolute&quot; aria-hidden=&quot;true&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://www.googletagservices.com/activeview/js/current/osd_listener.js?cache=r20110914&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;osdlfm(-1,&#39;&#39;,&#39;BlXyffJkhXZyYN4mi-gaH7oHwAgDYiaGzywIAABABOAHIAQngAgDgBAGgBiHSCAUIgCEQAQ&#39;,&#39;&#39;,2631699302,true,&#39;ud\u003d1\u0026la\u003d0\u0026alp\u003dai\u0026alh\u003d2201984917\u0026xdi\u003d0\u0026&#39;,3,&#39;CAASFeRosAoldepdJy9nERiWJWXWuWgyxQ&#39;,&#39;https://pagead2.googlesyndication.com/pcs/activeview?xai\u003dAKAOjsu-pAc6prGB9HrNjAa-oj1NYpVrpkYFiVusvrLLENxSThA1vu7RZ-ZfkDF3gwYzapTo-egG-Dk00FcXF-meTRDlQQ\u0026sig\u003dCg0ArKJSzFZwlMSnW3d0EAE\u0026cid\u003dCAASFeRosAoldepdJy9nERiWJWXWuWgyxQ&#39;,&#39;&#39;);&lt;/script&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20190626/r20110914/client/qs_click_protection.js&quot;&gt;&lt;/script&gt;&lt;script&gt;googqscp.init([[[[null,500,99,2,9,null,null,null,1]]]]);&lt;/script&gt;&lt;img src=&quot;//www.google.com/ads/measurement/l?ebcid=ALh7CaT35bxMAePzZhOx1Gey_n1M62xOLFs1IaVaSyrmxGLlkRSm3se8O101bBTFKsB-MSDD9XIvyU-AvxPWCS7ZEyMKbJwdnw&quot; style=&quot;display:none;&quot; alt=&quot;&quot;&gt;&lt;/img&gt;&lt;script&gt;if (window.top &amp;&amp; window.top.postMessage) {window.top.postMessage(&#39;{&quot;key_value&quot;:[{&quot;key&quot;:&quot;qid&quot;,&quot;value&quot;:&quot;CJzGqIKfouMCFQmR3godB3cALg&quot;}],&quot;googMsgType&quot;:&quot;adpnt&quot;}&#39;,&#39;*&#39;);}&lt;/script&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/safeframe/1-0-35/js/ext.js&quot;&gt;&lt;/script&gt;&lt;div style=&quot;bottom:0;right:0;width:728px;height:90px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:pixelated !important;z-index:2147483647;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB9SURBVBjTbZCLDYBACEPLBt1/WuVfjMQcd7GUB8B/WAbM7/MCGH/fk+S+QgHbXJUMmZ+oTFWfGvHOBu09JHZIJoJEuVHa+Mo7YVzcBUGShlMVDkJR7FnqZlDpl4SNQs9Dal+MGZC5RPaOC3jnlQ2eDrK7uB9qrD7bjKPphA88LAWEZTsUbQAAAABJRU5ErkJggg==&#39;) !important;&quot;&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;{&quot;uid&quot;:1990745925,&quot;hostPeerName&quot;:&quot;https://open.spotify.com&quot;,&quot;initialGeometry&quot;:&quot;{\&quot;windowCoords_t\&quot;:27,\&quot;windowCoords_r\&quot;:1366,\&quot;windowCoords_b\&quot;:707,\&quot;windowCoords_l\&quot;:0,\&quot;frameCoords_t\&quot;:0,\&quot;frameCoords_r\&quot;:728,\&quot;frameCoords_b\&quot;:90,\&quot;frameCoords_l\&quot;:0,\&quot;styleZIndex\&quot;:\&quot;auto\&quot;,\&quot;allowedExpansion_t\&quot;:0,\&quot;allowedExpansion_r\&quot;:0,\&quot;allowedExpansion_b\&quot;:0,\&quot;allowedExpansion_l\&quot;:0,\&quot;xInView\&quot;:1,\&quot;yInView\&quot;:1}&quot;,&quot;permissions&quot;:&quot;{\&quot;expandByOverlay\&quot;:false,\&quot;expandByPush\&quot;:false,\&quot;readCookie\&quot;:false,\&quot;writeCookie\&quot;:false}&quot;,&quot;metadata&quot;:&quot;{\&quot;shared\&quot;:{\&quot;sf_ver\&quot;:\&quot;1-0-35\&quot;,\&quot;ck_on\&quot;:1,\&quot;flash_ver\&quot;:\&quot;0\&quot;}}&quot;,&quot;reportCreativeGeometry&quot;:false,&quot;isDifferentSourceWindow&quot;:false,&quot;goog_safeframe_hlt&quot;:{},&quot;encryptionMode&quot;:null}" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="lg9ixtjv84lc" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+
+
+<iframe id="google_osd_static_frame_2395027264104" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./saved_resource.html"></iframe></body></html>
